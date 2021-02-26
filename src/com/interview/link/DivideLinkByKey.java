@@ -19,5 +19,135 @@ package com.interview.link;
  * 后出现 5。  如果链表长度为 N，时间复杂度请达到 O(N)，额外空间复杂度请达到 O(1)。
  */
 public class DivideLinkByKey {
+    public static class Node {
+        public int value;
+        public Node next;
 
+        public Node(int data) {
+            this.value = data;
+        }
+
+        public void addNode(int data) {
+            Node node = this;
+            while (null != node.next) {
+                node = node.next;
+            }
+            node.next = new Node(data);
+        }
+    }
+
+    public Node listPartition1(Node head, int pivot) {
+        if (head == null) {
+            return null;
+        }
+        Node cur = head;
+        int i = 0;
+        while (cur != null) {
+            i++;
+            cur = cur.next;
+        }
+        Node[] nodeArr = new Node[i];
+        cur = head;
+        for (i = 0; i != nodeArr.length; i++) {
+            nodeArr[i] = cur;
+            cur = cur.next;
+        }
+        arrPartition(nodeArr, pivot);
+        for (i = 1; i != nodeArr.length; i++) {
+            nodeArr[i - 1].next = nodeArr[i];
+        }
+        nodeArr[i - 1].next = null;
+        return nodeArr[0];
+    }
+
+    public void arrPartition(Node[] nodeArr, int pivot) {
+        int small = -1;
+        int big = nodeArr.length;
+        int index = 0;
+        while (index != big) {
+            if (nodeArr[index].value < pivot) {
+                swap(nodeArr, ++small, index++);
+            } else if (nodeArr[index].value == pivot) {
+                index++;
+            } else {
+                swap(nodeArr, --big, index);
+            }
+        }
+    }
+
+    public void swap(Node[] nodeArr, int a, int b) {
+        Node tmp = nodeArr[a];
+        nodeArr[a] = nodeArr[b];
+        nodeArr[b] = tmp;
+    }
+
+
+    public Node listPartition2(Node head, int pivot) {
+        Node sH = null; // 小的头
+        Node sT = null; // 小的尾
+        Node eH = null; // 相等的头
+        Node eT = null; // 相等的尾
+        Node bH = null; // 大的头
+        Node bT = null; // 大的尾
+        Node next = null; // 保存下一个节点
+        // 所有的节点分进三个链表中
+        while (head != null) {
+            next = head.next;
+            head.next = null;
+            if (head.value < pivot) {
+                if (sH == null) {
+                    sH = head;
+                } else {
+                    sT.next = head;
+                }
+                sT = head;
+            } else if (head.value == pivot) {
+                if (eH == null) {
+                    eH = head;
+                } else {
+                    eT.next = head;
+                }
+                eT = head;
+            } else {
+                if (bH == null) {
+                    bH = head;
+                } else {
+                    bT.next = head;
+                }
+                bT = head;
+            }
+            head = next;
+        }
+        // 小的和相等的重新连接
+        if (sT != null) {
+            sT.next = eH;
+            eT = eT == null ? sT : eT;
+        }
+        // 所有的重新连接
+        if (eT != null) {
+            eT.next = bH;
+        }
+        return sH != null ? sH : eH != null ? eH : bH;
+    }
+
+    public static void main(String[] args) {
+        Node node = new Node(1);
+        node.addNode(3);
+        node.addNode(9);
+        node.addNode(7);
+        node.addNode(311);
+        node.addNode(12);
+        node.addNode(6);
+        node.addNode(9);
+        node.addNode(8);
+        node.addNode(121);
+        node.addNode(13);
+        DivideLinkByKey dlb = new DivideLinkByKey();
+        Node res = dlb.listPartition1(node, 9); //1 3 7 8 6 9 9 12 121 13 311
+//        Node res = dlb.listPartition2(node, 9); //1 3 7 6 8 9 9 311 12 121 13
+        while (res != null) {
+            System.out.print(res.value + " ");
+            res = res.next;
+        }
+    }
 }
