@@ -1,9 +1,8 @@
 package com.interview.link;
 
-import sun.security.util.BitArray;
-
-import java.util.LinkedList;
-
+/**
+ * 给定两个有序链表的头指针 head1 和 head2，打印两个链表的公共部分。
+ */
 
 class PrintLinkCommon {
     public static class Node {
