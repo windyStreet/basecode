@@ -3,6 +3,8 @@ package com.base;
 import java.io.*;
 
 public class BaseCodeTest {
+
+
     public static void main(String[] args) throws IOException {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 100; i++) {
