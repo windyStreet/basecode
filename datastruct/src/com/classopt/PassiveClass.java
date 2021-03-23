@@ -1,7 +1,6 @@
 package com.classopt;
 
 
-import org.junit.Test;
 
 public class PassiveClass {
     public  void test1(){
