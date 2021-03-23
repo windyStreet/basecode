@@ -14,29 +14,33 @@ package com.learn.thread;
  * 通过Thread类的对象调用start()
  */
 // 线程不安全
-class Window implements Runnable {
+class Window_1 implements Runnable {
     private int ticket = 100;
+    private String syn = "10";
 
     @Override
     public void run() {
 
         while (true) {
-            if (ticket <= 0)
-                break;
-            try {
-                Thread.sleep(20);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            synchronized (syn) {
+                if (ticket <= 0)
+                    break;
+                try {
+                    Thread.sleep(20);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(Thread.currentThread().getName() + "出票:" + ticket);
+                ticket--;
             }
-            System.out.println(Thread.currentThread().getName() + "出票:" + ticket);
-            ticket--;
         }
+
     }
 }
 
-public class WindowTicketDemo {
+public class WindowTicketDemo_1 {
     public static void main(String[] args) {
-        Window w = new Window();
+        Window_1 w = new Window_1();
         Thread t1 = new Thread(w);
         t1.setName("窗口一");
         Thread t2 = new Thread(w);
