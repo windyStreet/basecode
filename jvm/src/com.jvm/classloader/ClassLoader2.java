@@ -1,7 +1,5 @@
 package com.jvm.classloader;
 
-import sun.awt.windows.ThemeReader;
-
 
 public class ClassLoader2 {
     public static void main(String[] args) {

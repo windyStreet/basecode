@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/basecode.iml" filepath="$PROJECT_DIR$/basecode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/datastruct/datastruct.iml" filepath="$PROJECT_DIR$/datastruct/datastruct.iml" />
+      <module fileurl="file://$PROJECT_DIR$/interview/interview.iml" filepath="$PROJECT_DIR$/interview/interview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jvm/jvm.iml" filepath="$PROJECT_DIR$/jvm/jvm.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn/learn.iml" filepath="$PROJECT_DIR$/learn/learn.iml" />
     </modules>
   </component>

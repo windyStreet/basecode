@@ -1,4 +1,4 @@
-package com.file;
+package com.interview.file;
 
 
 import java.io.BufferedWriter;
