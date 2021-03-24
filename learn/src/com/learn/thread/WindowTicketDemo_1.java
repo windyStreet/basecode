@@ -16,13 +16,14 @@ package com.learn.thread;
 // 线程不安全
 class Window_1 implements Runnable {
     private int ticket = 100;
-    private String syn = "10";
+//    private String syn = "10";
+    private Object obj = new Object();
 
     @Override
     public void run() {
 
         while (true) {
-            synchronized (syn) {
+            synchronized (obj) {
                 if (ticket <= 0)
                     break;
                 try {
