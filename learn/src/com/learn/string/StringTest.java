@@ -30,6 +30,12 @@ public class StringTest {
         System.out.println(st.s);
         System.out.println(st.cs);
         st.equals("sss");
+        System.out.println("-------------");
+
+        String str = null;
+        StringBuffer sb = new StringBuffer();
+        sb.append(str);
+        System.out.println(String.valueOf(null));
 
     }
 }
