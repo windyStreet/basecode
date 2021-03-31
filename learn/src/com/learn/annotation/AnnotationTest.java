@@ -49,7 +49,7 @@ import java.util.Date;
  * jdk 8 新特性
  * 可重复注解
  * 1、在MyAnnotation 上声明 @Repeatable,成员值为 在MyAnnotations.class
- * 2、在MyAnnotation 的 Target、Retention 和 MyAnnotations 一致
+ * 2、在MyAnnotation 的 Target、Retention等元注解 和 MyAnnotations 一致
  * <p>
  * 类型注解
  * TYPE_PARAMETER,TYPE_USE
@@ -106,7 +106,7 @@ class Gen<@MyAnnotation() T> {
 @MyAnnotation(value = "1111")
 @MyAnnotation(value = "222")
 class Person {
-    private String name;
+    private @MyAnnotation String name;
     private int age;
 
     //    @MyAnnotation
