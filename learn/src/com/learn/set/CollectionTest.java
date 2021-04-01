@@ -7,9 +7,7 @@ package com.learn.set;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
+import java.util.*;
 
 /**
  * 集合、数组 都是对多个数据进行存储操作的结构，简称java容器
@@ -23,6 +21,7 @@ import java.util.Date;
  * ③ 数组存储数据的特点 有序、可重复。对于无序的、不可重复的需求，处理困难
  * <p>
  * 1、collection
+ * 向collection 接口的实现类的对象中添加obj是，建议重写equals方法
  * 2、
  */
 public class CollectionTest {
@@ -45,5 +44,133 @@ public class CollectionTest {
         coll.clear();
         System.out.println(coll.size());
         System.out.println(coll.isEmpty());
+        System.out.println("****************");
+
+        coll.add(new Goods("AA", 12));
+        coll.add(123);
+        coll.add("ABC");
+        coll.add(new String("qwer"));
+
+        System.out.println(coll.contains(234));
+        System.out.println(coll.contains(123));
+        System.out.println(coll.contains("ABC"));
+        System.out.println(coll.contains(new String("qwer")));
+        System.out.println(coll.contains(new Goods("AA", 12)));
+    }
+
+    @Test
+    public void test2() {
+        Collection coll = new ArrayList();
+
+        coll.add(123);
+        coll.add("ABC");
+        coll.add(new String("qwer"));
+        coll.add(new Goods("AA", 12));
+
+        System.out.println(coll.contains(234));
+        System.out.println(coll.contains(123));
+        System.out.println(coll.contains("ABC"));
+        System.out.println(coll.contains(new String("qwer")));
+        //重写equals 执行的次数与找到的次数有关
+        System.out.println(coll.contains(new Goods("AA", 12)));
+        ArrayList<Object> objects = new ArrayList<>();
+        objects.add(123);
+        objects.add("ABC");
+        objects.add(new String("qwer"));
+        objects.add(new Goods("AA", 12));
+
+        // 判断形参objects 中的所有元素是否都存在于当前集合中
+        System.out.println(coll.containsAll(objects));
+        System.out.println(objects.containsAll(coll));
+    }
+
+    @Test
+    public void test3() {
+        //从当前集合中移除obj元素
+        Collection coll = new ArrayList();
+
+        coll.add(123);
+        coll.add(1235);
+        coll.add("ABC");
+        coll.add(new String("qwer"));
+        coll.add(new Goods("AA", 12));
+        System.out.println(coll.remove(123));
+        System.out.println(coll.remove(1234));
+        System.out.println(coll);
+        Collection coll1 = Arrays.asList(123, 1235);
+        coll.removeAll(coll1); // coll 的差集
+        System.out.println(coll);
+
+    }
+
+    @Test
+    public void test4() {
+        //从当前集合中移除obj元素
+        Collection coll = new ArrayList();
+
+        coll.add(123);
+        coll.add(1235);
+        coll.add("ABC");
+        coll.add(new String("qwer"));
+        coll.add(new Goods("AA", 12));
+        Collection coll1 = Arrays.asList(123, 1235, "TTTT");
+        coll.retainAll(coll1);  // coll 与 coll1的交集
+        System.out.println(coll); // 保留一样的
+    }
+
+    @Test
+    public void test5() {
+        // 返回true ，需要当前集合和形参集合的元素都相同
+        Collection coll = new ArrayList();
+
+        coll.add(123);
+        coll.add(1235);
+        coll.add("ABC");
+        coll.add(new String("qwer"));
+        coll.add(new Goods("AA", 12));
+
+        Collection coll1 = new ArrayList();
+        coll1.add(123);
+        coll1.add(1235);
+        coll1.add("ABC");
+        coll.add(new String("qwer"));
+        coll1.add(new Goods("AA", 12));
+
+        System.out.println(coll.equals(coll1));
+    }
+
+    @Test
+    public void test6() {
+        Collection coll = new ArrayList();
+
+        coll.add(123);
+        coll.add(1235);
+        coll.add("ABC");
+        coll.add(new String("qwer"));
+        coll.add(new Goods("AA", 12));
+        // 返回当前对象的hash值
+        System.out.println(coll.hashCode());
+        // 集合可以转换为数组
+        Object[] objects = coll.toArray();
+        for (int i = 0; i < objects.length; i++) {
+            System.out.println(objects[i]);
+        }
+        // 数组转化为集合
+        Collection objects1 = Arrays.asList(objects);
+        Collection objects2 = Arrays.asList(new int[]{22, 33, 66, 99});
+        System.out.println(objects2);
+        System.out.println(objects2.size());
+
+        System.out.println("！！！！！！！！！！！！！！！！");
+        Collection objects3 = Arrays.asList(new Integer[]{22, 33, 66, 99});
+        System.out.println(objects3);
+        System.out.println(objects3.size());
+
+        Iterator it = objects3.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
+
     }
 }
+
