@@ -1,4 +1,4 @@
-package com.learn.set;
+package com.learn.coll.collection;
 
 /**
  * @author windyStreet
@@ -21,7 +21,7 @@ import java.util.*;
  * ③ 数组存储数据的特点 有序、可重复。对于无序的、不可重复的需求，处理困难
  * <p>
  * 1、collection
- * 向collection 接口的实现类的对象中添加obj是，建议重写equals方法
+ * 向collection 接口的实现类的对象中添加obj时，建议重写equals方法
  * 2、
  */
 public class CollectionTest {

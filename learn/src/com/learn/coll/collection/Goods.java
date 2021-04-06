@@ -1,4 +1,4 @@
-package com.learn.set;
+package com.learn.coll.collection;
 
 /**
  * @author windyStreet

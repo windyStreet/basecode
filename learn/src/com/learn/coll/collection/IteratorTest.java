@@ -1,4 +1,4 @@
-package com.learn.set;
+package com.learn.coll.collection;
 
 import org.junit.Test;
 
@@ -94,6 +94,22 @@ public class IteratorTest {
                 System.out.println("null object ");
             }
             System.out.println(o);
+        }
+    }
+
+
+    @Test
+    public void test4() {
+        String[] arr = new String[]{"AA", "AA", "AA", "AA"};
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = "BB";
+        }
+        for (String s : arr) {
+            s = "CC";
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
         }
     }
 }
