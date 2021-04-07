@@ -7,9 +7,7 @@ package com.learn.coll.map;
 
 import org.junit.Test;
 
-import java.util.Comparator;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * 向 TreeMap 中添加 key-value ,要求key必须是由同一个类创建的对象
@@ -73,6 +71,15 @@ public class TreeMapTest {
             Pet pet = (Pet) en.getKey();
             System.out.println(pet.age + "---"+pet.name + ":" + en.getValue());
         }
+
+        Set set = map.entrySet();
+        Iterator iterator = set.iterator();
+        while (iterator.hasNext()){
+            Object next = iterator.next();
+            Map.Entry entry = (Map.Entry) next;
+            System.out.println(entry.getKey() + "----" + entry.getValue());
+        }
+
     }
 
 }
