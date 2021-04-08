@@ -112,7 +112,6 @@ public class FileReaderWriterTest {
 
     /**
      * 从内存中写出数据到文件中
-     * <p>
      * 说明:
      * 1、输出操作，对应的File可以不存在，并不会报异常
      * 2、
@@ -142,5 +141,39 @@ public class FileReaderWriterTest {
             }
         }
 
+    }
+
+    @Test
+    public void testFileReaderFileWriter() {
+        FileReader fileReader = null;
+        FileWriter fileWriter = null;
+        try {
+            File srcFile = new File("fileReaderWriterTest.txt");
+            File destFile = new File("fileReaderWriterTest.txt1");
+
+            fileReader = new FileReader(srcFile);
+            fileWriter = new FileWriter(destFile);
+
+            int len;
+            char[] buf = new char[5];
+            while ((len = fileReader.read(buf)) != -1) {
+                fileWriter.write(buf, 0, len);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (null != fileWriter)
+                    fileWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                if (null != fileReader)
+                    fileReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
