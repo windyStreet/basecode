@@ -1,5 +1,7 @@
 package com.learn.generic.demo;
 
+import java.util.Objects;
+
 /**
  * @author windyStreet
  * @codetime 2021-04-07 18:02
@@ -60,8 +62,8 @@ public class User {
         User user = (User) o;
 
         if (age != user.age) return false;
-        if (id != null ? !id.equals(user.id) : user.id != null) return false;
-        return name != null ? name.equals(user.name) : user.name == null;
+        if (!Objects.equals(id, user.id)) return false;
+        return Objects.equals(name, user.name);
     }
 
     @Override
