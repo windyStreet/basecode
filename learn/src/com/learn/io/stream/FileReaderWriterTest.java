@@ -1,4 +1,4 @@
-package com.learn.io;
+package com.learn.io.stream;
 
 /**
  * @author windyStreet

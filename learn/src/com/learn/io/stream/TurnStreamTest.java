@@ -1,4 +1,4 @@
-package com.learn.io;
+package com.learn.io.stream;
 
 /**
  * @author windyStreet
@@ -8,6 +8,7 @@ package com.learn.io;
 import org.junit.Test;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 /**
  * 转换流
@@ -32,7 +33,7 @@ public class TurnStreamTest {
             char[] cbuf = new char[1024];
             int len;
             while ((len = isr.read(cbuf)) != -1) {
-                String s = new String(cbuf, 0, cbuf.length);
+                String s = new String(cbuf, 0, len);
                 System.out.println(s);
             }
         } catch (IOException e) {
@@ -54,7 +55,7 @@ public class TurnStreamTest {
         InputStreamReader inputStreamReader = null;
         OutputStreamWriter outputStreamWriter = null;
         try {
-            inputStreamReader = new InputStreamReader(new FileInputStream("fileReaderWriterTest.txt"), "utf-8");
+            inputStreamReader = new InputStreamReader(new FileInputStream("fileReaderWriterTest.txt"), StandardCharsets.UTF_8);
             outputStreamWriter = new OutputStreamWriter(new FileOutputStream("fileReaderWriterTest_OutputStreamWriter.txt"), "gbk");
 
             char[] c_buf = new char[12];
