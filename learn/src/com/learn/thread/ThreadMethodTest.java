@@ -40,9 +40,9 @@ class HelloThread extends Thread {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if (i % 20 == 0) {
-                yield();
-            }
+            if (i % 20 == 0)
+//                yield();
+                Thread.yield();
         }
     }
 
