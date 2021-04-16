@@ -25,8 +25,10 @@ import java.util.Comparator;
  *      1、如果lambda 体只有一条执行语句，可以省略{} 和  return；
  * Lambda 表达式的本质： 作为函数式接口的一个实例【接口的具体实现】
  *      要求：接口之能有一个抽象方法
+ * @FunctionalInterface 可以检验是否是一个函数式接口
  * 函数式接口：如果一个接口中，只声明了一个抽象方法
- *
+ * 应用场景:匿名实现类表示的都可以用Lambda表达式来写
+ * java.util.function 包下定义的函数式接口
  */
 public class LambdaTest {
     @Test
@@ -173,6 +175,7 @@ public class LambdaTest {
         System.out.println(com2.compare(38, 23));
 
     }
+
 
 
 }
