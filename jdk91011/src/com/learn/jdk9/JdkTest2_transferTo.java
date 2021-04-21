@@ -6,7 +6,7 @@ import java.io.*;
  * @author windyStreet
  * @codetime 2021-04-21 11:31
  */
-public class JdkTest2 {
+public class JdkTest2_transferTo {
 
     /**
      * 实现文件复制 传输流
@@ -16,7 +16,7 @@ public class JdkTest2 {
      */
     public static void main(String[] args) {
 
-        ClassLoader c1 = JdkTest2.class.getClassLoader();
+        ClassLoader c1 = JdkTest2_transferTo.class.getClassLoader();
 
         File file = new File("cc.txt");
         try (InputStream is = c1.getResourceAsStream("jdk9test.txt"); OutputStream os = new FileOutputStream(file);) {

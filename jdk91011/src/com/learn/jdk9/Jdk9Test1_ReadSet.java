@@ -6,7 +6,7 @@ import java.util.*;
  * @author windyStreet
  * @codetime 2021-04-21 11:14
  */
-public class Jdk9Test1 {
+public class Jdk9Test1_ReadSet {
     /**
      * 集合工厂方法：创建只读集合
      */
