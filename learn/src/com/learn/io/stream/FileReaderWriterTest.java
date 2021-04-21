@@ -37,7 +37,7 @@ public class FileReaderWriterTest {
         FileReader fr = null;
         try {
             // 1、 创建一个文件
-            File file = new File("fileReaderWriterTest.txt");
+            File file = new File("fileReaderWriterTestxxx.txt");
             if (!file.exists()) {
                 file.createNewFile();
             }

@@ -44,6 +44,7 @@ public class OptionalTest {
         System.out.println(girlName);
     }
 
+
     public String getGirlName1(Boy boy) {
 
         Optional<Boy> boyOptional = Optional.ofNullable(boy);
@@ -60,5 +61,35 @@ public class OptionalTest {
         boy = null; // getGirlName1 ==小张
         String girlName = getGirlName1(boy);
         System.out.println(girlName);
+    }
+
+    @Test
+    public void test3() {
+        Optional<Object> empty = Optional.empty();
+        if (!empty.isPresent()){ // 是否包含数据
+            System.out.println("数据为空");
+        }
+        System.out.println(empty.isPresent());
+    }
+
+    /**
+     * of() get() 搭配使用，用于获取内部的封装的数据
+     */
+    @Test
+    public void test4() {
+        String str = "hello";
+//        str = null;
+        Optional<String> str1 = Optional.of(str);  // Optional.of(T t) t费控
+        String s = str1.get();
+        System.out.println(s);
+    }
+
+    @Test
+    public void test5() {
+        String str = "beijing";
+        str = null;
+        Optional<String> str1 = Optional.ofNullable(str);
+        String str2 = str1.orElse("shanghai");
+        System.out.println(str2);
     }
 }

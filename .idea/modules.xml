@@ -6,6 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/basecode.iml" filepath="$PROJECT_DIR$/basecode.iml" />
       <module fileurl="file://$PROJECT_DIR$/datastruct/datastruct.iml" filepath="$PROJECT_DIR$/datastruct/datastruct.iml" />
       <module fileurl="file://$PROJECT_DIR$/interview/interview.iml" filepath="$PROJECT_DIR$/interview/interview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jdk91011/jdk91011.iml" filepath="$PROJECT_DIR$/jdk91011/jdk91011.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jdk9module/jdk9module.iml" filepath="$PROJECT_DIR$/jdk9module/jdk9module.iml" />
       <module fileurl="file://$PROJECT_DIR$/jvm/jvm.iml" filepath="$PROJECT_DIR$/jvm/jvm.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn/learn.iml" filepath="$PROJECT_DIR$/learn/learn.iml" />
     </modules>
